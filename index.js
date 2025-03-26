@@ -54,12 +54,7 @@ class Numbers {
   }
   greaterThan(target) {
     //return the numbers greater than the target
-    const greater = [];
-    this.data.forEach((index) => {
-      if (index > target) {
-        greater.push(index);
-      }
-    });
+    const greater = this.data.filter((index) => index > target);
     return greater;
   }
   howMany(target) {
