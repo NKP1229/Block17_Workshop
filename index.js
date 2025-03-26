@@ -1,5 +1,6 @@
 // Complete the Numbers class below
 // the constructor has already been provided
+// in for objects, of for arrays
 class Numbers {
   constructor(data) {
     //data can either be a string or an array of numbers
@@ -11,27 +12,65 @@ class Numbers {
   }
   count() {
     //return the count of numbers in data
+    let count = 0;
+    for (const num in this.data) {
+      count++;
+    }
+    return count;
   }
   printNumbers() {
     //print the numbers in data
+    console.log(this.data);
   }
   odds() {
     //return the odd numbers in data
+    const oddNums = [];
+    for (const num of this.data) {
+      if (num % 2 !== 0) {
+        oddNums.push(num);
+      }
+    }
+    return oddNums;
   }
   evens() {
     //return the even numbers in data
+    const evenNums = [];
+    for (const num of this.data) {
+      if (num % 2 === 0) {
+        evenNums.push(num);
+      }
+    }
+    return evenNums;
   }
   sum() {
     //return the sum of the numbers
+    let sum = this.data.reduce((acc, current) => acc + current);
+    return sum;
   }
   product() {
     //return the product of the numbers
+    let product = this.data.reduce((acc, value) => acc * value);
+    return product;
   }
   greaterThan(target) {
     //return the numbers greater than the target
+    const greater = [];
+    this.data.forEach((index) => {
+      if (index > target) {
+        greater.push(index);
+      }
+    });
+    return greater;
   }
   howMany(target) {
     //return the count of a given number
+    let count = 0;
+    this.data.forEach((index) => {
+      if (index === target) {
+        count++;
+      }
+    });
+    return count;
   }
 }
 
